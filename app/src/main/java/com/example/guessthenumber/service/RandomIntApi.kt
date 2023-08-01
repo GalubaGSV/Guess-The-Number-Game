@@ -1,4 +1,4 @@
-package com.example.guessthenumber
+package com.example.guessthenumber.service
 
 import com.example.guessthenumber.model.RandomInt
 import com.example.guessthenumber.model.RandomOrgRequest

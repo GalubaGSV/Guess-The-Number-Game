@@ -1,6 +1,5 @@
 package com.example.guessthenumber.service
 
-import com.example.guessthenumber.RandomIntApi
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
