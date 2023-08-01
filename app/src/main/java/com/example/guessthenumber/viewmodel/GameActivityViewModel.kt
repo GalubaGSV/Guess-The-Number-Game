@@ -21,6 +21,7 @@ import kotlinx.coroutines.launch
 class GameActivityViewModel : ViewModel() {
     companion object {
         private const val API_RECEIVED_DATA_ERROR_MESSAGE = "Отримано некоректні данні з API"
+        const val MAX_ATTEMPTS = 5
     }
 
     private val _number = MutableLiveData<Int>()
@@ -33,7 +34,7 @@ class GameActivityViewModel : ViewModel() {
     private val _gameStatus = MutableLiveData<GameStatus>()
     val gameStatus: LiveData<GameStatus> get() = _gameStatus
 
-    private var attempts = RandomOrgConfig.MAX_ATTEMPTS
+    private var attempts = MAX_ATTEMPTS
 
     init {
         _attemptsLeft.value = attempts
