@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/startGameFragment">
+
+    <fragment
+        android:id="@+id/startGameFragment"
+        android:name="com.example.guessthenumber.view.StartGameFragment"
+        android:label="fragment_start_game"
+        tools:layout="@layout/fragment_start_game" >
+        <action
+            android:id="@+id/action_startGameFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.guessthenumber.view.GameFragment"
+        android:label="fragment_game"
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_wonFragment"
+            app:destination="@id/wonFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_lostFragment"
+            app:destination="@id/lostFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/wonFragment"
+        android:name="com.example.guessthenumber.view.WonFragment"
+        android:label="fragment_won"
+        tools:layout="@layout/fragment_won" >
+        <action
+            android:id="@+id/action_wonFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lostFragment"
+        android:name="com.example.guessthenumber.view.LostFragment"
+        android:label="fragment_lost"
+        tools:layout="@layout/fragment_lost" >
+        <action
+            android:id="@+id/action_lostFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+</navigation>
