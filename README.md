@@ -45,6 +45,7 @@ Overall, Guess The Number offers an enjoyable and challenging gaming experience 
 * Android Studio
 * Retrofit
 * Coroutine
+* Databinding
 * MVVM architecture
 * XML
 * JSON
