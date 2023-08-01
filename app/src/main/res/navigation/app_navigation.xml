@@ -21,10 +21,12 @@
         tools:layout="@layout/fragment_game" >
         <action
             android:id="@+id/action_gameFragment_to_wonFragment"
-            app:destination="@id/wonFragment" />
+            app:destination="@id/wonFragment"
+            app:popUpTo="@id/startGameFragment" />
         <action
             android:id="@+id/action_gameFragment_to_lostFragment"
-            app:destination="@id/lostFragment" />
+            app:destination="@id/lostFragment"
+            app:popUpTo="@id/startGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/wonFragment"
@@ -33,7 +35,8 @@
         tools:layout="@layout/fragment_won" >
         <action
             android:id="@+id/action_wonFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/startGameFragment" />
     </fragment>
     <fragment
         android:id="@+id/lostFragment"
@@ -42,6 +45,7 @@
         tools:layout="@layout/fragment_lost" >
         <action
             android:id="@+id/action_lostFragment_to_gameFragment"
-            app:destination="@id/gameFragment" />
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/startGameFragment" />
     </fragment>
 </navigation>
