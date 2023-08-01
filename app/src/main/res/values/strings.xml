@@ -2,7 +2,11 @@
     <string name="app_name">Guess The Number</string>
     <string name="game_name">Вгадай число</string>
     <string name="start_game_button_text">Почати гру</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="play_again">Грати знову</string>
+    <string name="confirm">Підтвердити</string>
+    <string name="hello">Вітаю!</string>
+    <string name="attempts">Спроби</string>
+    <string name="from_1_to_100">Введіть число від 1 до 100</string>
 </resources>
