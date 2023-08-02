@@ -2,6 +2,7 @@
 
 Description:
 Guess The Number is a simple Android application that challenges users to guess a randomly generated number between 1 and 100. The app features a user-friendly interface with three main screens: the start screen, the game screen, and the results screen
+
 Key Features:
 
 UI:
