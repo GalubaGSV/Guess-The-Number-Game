@@ -22,7 +22,7 @@ UI:
 * * Provides a "Play Again" button to start a new game.
     
 
-  <img src="https://i.ibb.co/DCXghPD/test.jpg" >
+  <img src="https://i.ibb.co/YdfQLMG/test.jpg" >
 
 Functionality:
 
