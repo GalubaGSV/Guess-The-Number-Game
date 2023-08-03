@@ -1,10 +1,12 @@
 package com.example.guessthenumber.view
 
+import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -23,6 +25,7 @@ class GameFragment : Fragment() {
         private const val TOO_SMALL_NUMBER_MESSAGE = "Занадто мале число"
         private const val INPUT_NUMBER_MESSAGE = "Будь ласка введіть число"
         private const val INPUT_CORRECT_NUMBER_MESSAGE = "Число має бути від 1 до 100"
+        private const val TITLE = "Вгадай число"
     }
 
     lateinit var gameActivityViewModel: GameActivityViewModel
@@ -38,12 +41,17 @@ class GameFragment : Fragment() {
         binding.gameFragment = this
         gameActivityViewModel = ViewModelProvider(this).get(GameActivityViewModel::class.java)
 
+        val actionBar = (requireActivity() as AppCompatActivity).supportActionBar
+        actionBar?.title = GameFragment.TITLE
+
         val tv = binding.testTextView
         val attempt = binding.attemptsTextView
         textInputNumber = binding.textInputNumber
+        var attempts = 0
 
         gameActivityViewModel.attemptsLeft.observe(viewLifecycleOwner) { attemptsLeft ->
             attempt.text = ATTEMPTS + attemptsLeft.toString()
+            attempts = attemptsLeft
         }
 
         gameActivityViewModel.generateRandomNumber(requireContext())
@@ -52,19 +60,25 @@ class GameFragment : Fragment() {
             tv.text = number.toString()
         })
 
+        binding.finishGameButton.setOnClickListener { view: View ->
+            val action = GameFragmentDirections.actionGameFragmentToLostFragment(attempts)
+            Navigation.findNavController(view).navigate(action)
+        }
+
         binding.button.setOnClickListener { view: View ->
+            binding.finishGameButton.visibility = View.VISIBLE
             var inputNumber = 0
             if (validateEmail()) {
                 inputNumber = textInputNumber.editText?.getText().toString().toInt()
                 gameActivityViewModel.makeGuess(inputNumber)
             }
             if (gameActivityViewModel.gameStatus.value == GameStatus.WON) {
-                Navigation.findNavController(view)
-                    .navigate(R.id.action_gameFragment_to_wonFragment)
+                val action = GameFragmentDirections.actionGameFragmentToWonFragment(attempts)
+                Navigation.findNavController(view).navigate(action)
             }
             if (gameActivityViewModel.gameStatus.value == GameStatus.LOST) {
-                Navigation.findNavController(view)
-                    .navigate(R.id.action_gameFragment_to_lostFragment)
+                val action = GameFragmentDirections.actionGameFragmentToLostFragment(attempts)
+                Navigation.findNavController(view).navigate(action)
             }
 
             val currentNumber = gameActivityViewModel.number.value
@@ -99,4 +113,6 @@ class GameFragment : Fragment() {
         textInputNumber.setError("")
         return true
     }
+
+
 }

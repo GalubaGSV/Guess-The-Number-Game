@@ -4,9 +4,10 @@
     <string name="start_game_button_text">Почати гру</string>
 
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="play_again">Грати знову</string>
-    <string name="confirm">Підтвердити</string>
+    <string name="play_again">Повернутися до меню</string>
+    <string name="confirm">Перевірити</string>
     <string name="hello">Вітаю!</string>
     <string name="attempts">Спроби</string>
     <string name="from_1_to_100">Введіть число від 1 до 100</string>
+    <string name="finishGame">Завершити гру</string>
 </resources>
